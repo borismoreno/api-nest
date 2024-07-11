@@ -245,7 +245,6 @@ export class FirmaService {
         xades_bes += '\n<ds:Object Id="Signature' + Signature_number + '-Object' + Object_number + '">';
         xades_bes += '<etsi:QualifyingProperties Target="#Signature' + Signature_number + '">';
 
-        //ELEMENTO <etsi:SignedProperties>';
         xades_bes += SignedProperties;
 
         xades_bes += '</etsi:QualifyingProperties>';
