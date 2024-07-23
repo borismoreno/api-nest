@@ -9,7 +9,7 @@ export class AuthController {
     constructor(private authService: AuthService) { }
 
     @HttpCode(HttpStatus.OK)
-    @Post('login')
+    @Post()
     @Public()
     async login(
         @Body()

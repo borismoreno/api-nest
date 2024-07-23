@@ -12,13 +12,17 @@ export class AuthService {
 
     async signIn(username: string, password: string): Promise<any> {
         const usuario = await this.usersService.findUsuarioByEmail(username);
+        console.log('usuario', usuario);
         if (usuario) {
             const isMatch = await bcrypt.compare(password, usuario.password);
             if (!isMatch) throw new UnauthorizedException();
         }
         const payload = { uid: usuario._id, userName: usuario.nombre, email: usuario.email, rol: usuario.rol, empresaId: usuario.empresa }
         return {
-            access_token: await this.jwtService.signAsync(payload)
+            token: await this.jwtService.signAsync(payload),
+            tokenExpiresInMinutes: 60,
+            userName: usuario.nombre,
+            userId: usuario._id
         };
     }
 }
