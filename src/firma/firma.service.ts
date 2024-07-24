@@ -165,7 +165,6 @@ export class FirmaService {
         KeyInfo += '\n</ds:Modulus>';
         KeyInfo += '\n<ds:Exponent>\n';
 
-        //KeyInfo += 'AQAB';
         KeyInfo += exponent;
 
         KeyInfo += '</ds:Exponent>';
